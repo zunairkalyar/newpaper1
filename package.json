@@ -1,0 +1,21 @@
+{
+  "name": "news-pdf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "download_epaper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "adm-zip": "^0.6.0",
+    "archiver": "^8.0.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "fontkit": "^2.0.4",
+    "pdf-lib": "^1.17.1"
+  }
+}
