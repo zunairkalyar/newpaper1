@@ -3,232 +3,1315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pakistan E-Paper Master | PDF Downloader & Watermarking Hub</title>
+    <title>Pakistan E-Paper Master | PDF Downloader & Digital Hub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-container">
-        <!-- Top Navigation -->
-        <header class="app-header">
-            <div class="brand">
+    <div class="app-layout">
+        <!-- ── LEFT SIDEBAR NAVIGATION ───────────────────────────────────── -->
+        <aside class="app-sidebar">
+            <div class="sidebar-brand">
                 <div class="brand-icon">
-                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
                     </svg>
                 </div>
-                <div>
+                <div class="brand-text">
                     <h1 class="brand-title">E-Paper <span>Master</span></h1>
-                    <p class="brand-subtitle">Pakistan Daily Newspapers PDF Downloader & WhatsApp Hub</p>
+                    <p class="brand-subtitle">Pakistan E-Paper & Daily News Hub</p>
                 </div>
             </div>
-            
-            <div class="header-actions">
-                <button class="btn btn-emerald" id="btnDownloadZipTop" title="Download only selected date's newspapers as a single ZIP">
-                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section-label">MAIN NAVIGATION</div>
+                
+                <a href="#hub" class="nav-item active" data-tab="tab-hub">
+                    <svg class="nav-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
                     </svg>
-                    <span id="lblZipTopText">Download Date ZIP</span>
-                </button>
-                <button class="theme-toggle-btn" id="btnThemeToggle" title="Toggle Light/Dark Theme">
-                    ☀️
-                </button>
-                <button class="btn btn-outline" id="btnOpenFolder">
-                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+                    <span class="nav-label">Newspaper Hub</span>
+                    <span class="nav-pill" id="navCountHub">49</span>
+                </a>
+                
+
+
+                
+
+                <a href="#files" class="nav-item" data-tab="tab-files">
+                    <svg class="nav-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
                     </svg>
-                    Open Folder
+                    <span class="nav-label">Generated PDFs</span>
+                    <span class="nav-pill" id="navCountFiles">0</span>
+                </a>
+
+                <a href="#magazines" class="nav-item" data-tab="tab-magazines">
+                    <svg class="nav-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span class="nav-label">Free Magazines</span>
+                    <span class="nav-pill" id="navCountMagazines" style="background: rgba(16, 185, 129, 0.2); color: #10b981;">NEW</span>
+                </a>
+
+                <a href="#foreignpaper" class="nav-item" data-tab="tab-foreignpaper">
+                    <svg class="nav-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"></path>
+                        <path d="M2 12h20"></path>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                    <span class="nav-label">Foreign Paper</span>
+                    <span class="nav-pill" id="navCountForeignPaper" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6;">NEW</span>
+                </a>
+
+                <a href="#indianpaper" class="nav-item" data-tab="tab-indianpaper">
+                    <svg class="nav-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+                    </svg>
+                    <span class="nav-label">Indian Newspaper</span>
+                    <span class="nav-pill" id="navCountIndianPaper" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">NEW</span>
+                </a>
+
+                <a href="#arab" class="nav-item" data-tab="tab-arab">
+                    <svg class="nav-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"></path>
+                        <path d="M3.6 9h16.8M3.6 15h16.8"></path>
+                        <path d="M11.5 3a17 17 0 0 0 0 18M12.5 3a17 17 0 0 1 0 18"></path>
+                    </svg>
+                    <span class="nav-label">عرب نیوز / Arab News</span>
+                    <span class="nav-pill" id="navCountArab" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6;">22</span>
+                </a>
+
+                <a href="#khalik" class="nav-item" data-tab="tab-khalik">
+                    <svg class="nav-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+                    </svg>
+                    <span class="nav-label">خالق / Khaliq</span>
+                    <span class="nav-pill" id="navCountKhalik" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">55</span>
+                </a>
+
+                <a href="#watermark" class="nav-item" data-tab="tab-watermark">
+                    <svg class="nav-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                    <span class="nav-label">Watermark Stamper</span>
+                    <span class="nav-pill" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">STAMP</span>
+                </a>
+
+                <a href="#passport-photo" class="nav-item" data-tab="tab-passport-photo">
+                    <svg class="nav-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    <span class="nav-label">Passport Photo Creator by Khaliq</span>
+                    <span class="nav-pill" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6;">AI</span>
+                </a>
+
+
+
+                <div class="nav-section-label" style="margin-top: 20px;">SETTINGS & ENGINE</div>
+
+                <a href="#branding" class="nav-item" data-tab="tab-branding">
+                    <svg class="nav-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                    <span class="nav-label">WhatsApp Branding</span>
+                </a>
+
+                <a href="#laravel" class="nav-item" data-tab="tab-laravel">
+                    <svg class="nav-icon" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                        <polyline points="2 17 12 22 22 17"></polyline>
+                        <polyline points="2 12 12 17 22 12"></polyline>
+                    </svg>
+                    <span class="nav-label">Laravel API Engine</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="engine-status-badge">
+                    <span class="status-pulse"></span>
+                    <span class="engine-status-text">Engine Online (Port 3012)</span>
+                </div>
+                <button class="btn btn-primary btn-block btn-sm" id="btnSidebarRunBatch" style="margin-top: 10px; font-weight: 700; border-radius: 8px;">
+                    <span>⚡ Run Batch</span>
                 </button>
             </div>
-        </header>
+        </aside>
 
-        <!-- Main Grid Layout -->
-        <main class="main-grid">
-            <!-- Left Column: Controls & Newspaper Selector -->
-            <section class="config-section">
-                <!-- Date & Newspaper Selector Card -->
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <span class="step-num">1</span>
-                            <h3>Select Date & Newspapers</h3>
-                        </div>
-                        <div class="quick-dates">
-                            <button class="btn-chip active" id="btnDateToday">Today</button>
-                            <button class="btn-chip" id="btnDateYesterday">Yesterday</button>
-                        </div>
+        <!-- ── MAIN CONTENT AREA ─────────────────────────────────────────── -->
+        <main class="main-content">
+            <!-- Top Action Header -->
+            <header class="top-bar">
+                <div class="date-quick-picker">
+                    <label for="inputDate" class="date-label">Publication Date:</label>
+                    <div class="input-with-icon">
+                        <input type="date" id="inputDate" class="form-input date-input">
                     </div>
-                    
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="inputDate">Publication Date (Filters downloads and ZIP archive)</label>
-                            <div class="input-with-icon">
-                                <input type="date" id="inputDate" class="form-control">
-                            </div>
-                        </div>
-
-                        <!-- Newspaper Directory & Filters -->
-                        <div class="newspaper-selector">
-                            <div class="filter-tabs">
-                                <button class="tab-btn active" data-filter="all">All Newspapers</button>
-                                <button class="tab-btn" data-filter="english">English</button>
-                                <button class="tab-btn" data-filter="urdu">Urdu</button>
-                                <button class="tab-btn" data-filter="regional">Regional & Jobs</button>
-                            </div>
-
-                            <div class="edition-actions mb-3">
-                                <button type="button" class="btn-text" id="btnSelectAll">Select All</button>
-                                <span class="divider">•</span>
-                                <button type="button" class="btn-text" id="btnSelectEnglish">English Only</button>
-                                <span class="divider">•</span>
-                                <button type="button" class="btn-text" id="btnSelectUrdu">Urdu Only</button>
-                                <span class="divider">•</span>
-                                <button type="button" class="btn-text" id="btnDeselectAll">Clear</button>
-                            </div>
-                            
-                            <div class="newspaper-grid" id="newspaperGrid">
-                                <!-- Dynamically Rendered via JS -->
-                            </div>
-                        </div>
+                    <div class="quick-chip-group">
+                        <button type="button" class="quick-chip active" id="btnDateToday">Today</button>
+                        <button type="button" class="quick-chip" id="btnDateYesterday">Yesterday</button>
                     </div>
                 </div>
 
-                <!-- Branding & Layout Settings Card -->
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <span class="step-num">2</span>
-                            <h3>WhatsApp Group Branding (Clean Margins)</h3>
+                <div class="top-actions">
+                    <button type="button" class="btn btn-emerald" id="btnDownloadZipTop" title="Download ZIP archive of selected date">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                        </svg>
+                        <span id="lblZipTopText">Download Date ZIP</span>
+                    </button>
+
+                    <button type="button" class="btn btn-danger-subtle" id="btnDeleteDateZipTop" title="Delete all generated PDFs for selected date">
+                        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                        </svg>
+                        <span id="lblDeleteZipTopText">Delete Date ZIP</span>
+                    </button>
+
+                    <button type="button" class="theme-toggle-btn" id="btnThemeToggle" title="Toggle Light/Dark Theme">
+                        ☀️
+                    </button>
+
+                    <button type="button" class="btn btn-outline" id="btnOpenFolder" title="Open Output Directory on Server">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/>
+                        </svg>
+                        <span>Open Folder</span>
+                    </button>
+
+                    <button type="button" class="btn btn-outline" id="btnLockApp" title="Lock Website Access">
+                        🔒 Lock
+                    </button>
+                </div>
+            </header>
+
+            <!-- ── TAB PANES ─────────────────────────────────────────────── -->
+            <div class="tab-content-container">
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!-- TAB 1: NEWSPAPER HUB                                        -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section class="tab-pane active" id="tab-hub">
+                    <!-- Stats Cards Row -->
+                    <div class="stats-overview-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon-wrap" style="background: rgba(79, 70, 229, 0.12); color: var(--primary);">
+                                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+                            </div>
+                            <div class="stat-details">
+                                <div class="stat-label">Total Newspapers</div>
+                                <div class="stat-value">49 <span class="stat-sub">Editions</span></div>
+                            </div>
                         </div>
-                        <button class="btn-text" id="btnResetWatermark">Reset Default</button>
+
+                        <div class="stat-card">
+                            <div class="stat-icon-wrap" style="background: rgba(16, 185, 129, 0.12); color: var(--accent-emerald);">
+                                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                            </div>
+                            <div class="stat-details">
+                                <div class="stat-label">Selected for Batch</div>
+                                <div class="stat-value" id="lblSelectedCount">49 <span class="stat-sub">Ready</span></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon-wrap" style="background: rgba(245, 158, 11, 0.12); color: var(--accent-amber);">
+                                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            </div>
+                            <div class="stat-details">
+                                <div class="stat-label">Ready PDFs (Selected Date)</div>
+                                <div class="stat-value" id="lblReadyCount">0 <span class="stat-sub">Files</span></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon-wrap" style="background: rgba(99, 102, 241, 0.12); color: #6366f1;">
+                                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            </div>
+                            <div class="stat-details">
+                                <div class="stat-label">Publication Date</div>
+                                <div class="stat-value" id="lblActiveDate" style="font-size: 16px; font-weight: 700;">Today</div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="watermarkText">WhatsApp Group Branding Text</label>
-                            <input type="text" id="watermarkText" class="form-control text-brand" value="Social Media Pakistan 0342-4938217" placeholder="e.g. Social Media Pakistan 0342-4938217">
-                            <span class="form-hint">Placed in clean extra margins at the top and bottom (zero overlap on news content).</span>
-                        </div>
-
-                        <!-- Watermark Layers Toggle -->
-                        <div class="watermark-layers">
-                            <div class="layer-item">
-                                <label class="switch-label">
-                                    <input type="checkbox" id="chkTopBanner" checked>
-                                    <span class="switch-slider"></span>
-                                    <span class="layer-title">Top Header Bar (Centered in Extra Top Space)</span>
-                                </label>
+                    <!-- Main Table Card -->
+                    <div class="master-table-card">
+                        <!-- Table Toolbar -->
+                        <div class="table-toolbar">
+                            <div class="filter-chips-row">
+                                <button type="button" class="tab-chip active" data-filter="all">All Editions (49)</button>
+                                <button type="button" class="tab-chip" data-filter="pdf_ready" style="border-color: rgba(16, 185, 129, 0.5);">✓ PDF Generated (0)</button>
+                                <button type="button" class="tab-chip" data-filter="pdf_pending" style="border-color: rgba(245, 158, 11, 0.5);">⏳ PDF Pending (49)</button>
+                                <button type="button" class="tab-chip" data-filter="english">English (22)</button>
+                                <button type="button" class="tab-chip" data-filter="urdu">Urdu (25)</button>
+                                <button type="button" class="tab-chip" data-filter="jobs">Daily Jobs (1)</button>
+                                <button type="button" class="tab-chip" data-filter="regional">Regional &amp; Sindhi (1)</button>
                             </div>
 
-                            <div class="layer-item">
-                                <label class="switch-label">
-                                    <input type="checkbox" id="chkBottomBanner" checked>
-                                    <span class="switch-slider"></span>
-                                    <span class="layer-title">Bottom WhatsApp Bar (Centered in Extra Bottom Space)</span>
-                                </label>
+                            <div class="toolbar-actions">
+                                <button type="button" class="btn-text-sm" id="btnSelectAll">Select All</button>
+                                <span class="toolbar-sep">•</span>
+                                <button type="button" class="btn-text-sm" id="btnDeselectAll">Clear</button>
+
+                                <button type="button" id="btnStartBatch" class="btn btn-primary" style="padding: 9px 18px; font-weight: 700; border-radius: 8px; margin-left: 12px; display: inline-flex; align-items: center; gap: 8px;">
+                                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                    <span>Run Batch for Selected</span>
+                                </button>
+
+                                <button type="button" id="btnStopBatch" class="btn btn-danger" style="display: none; background: #dc2626; border-color: #b91c1c; padding: 9px 18px; font-weight: 700; border-radius: 8px; margin-left: 8px; align-items: center; gap: 8px; color: #fff;">
+                                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"></rect></svg>
+                                    <span>Stop Batch</span>
+                                </button>
                             </div>
+                        </div>
 
-                            <div class="layer-item">
-                                <label class="switch-label">
-                                    <input type="checkbox" id="chkDiagonal">
-                                    <span class="switch-slider"></span>
-                                    <span class="layer-title">Diagonal Center Watermark (Disabled by default)</span>
-                                </label>
+                        <!-- Table Element -->
+                        <div class="table-responsive">
+                            <table class="newspaper-master-table">
+                                <thead>
+                                    <tr>
+                                        <th class="col-checkbox">
+                                            <input type="checkbox" id="chkMasterTable" checked>
+                                        </th>
+                                        <th>EDITION / NEWSPAPER</th>
+                                        <th>CATEGORY</th>
+                                        <th>CITY / REGION</th>
+                                        <th>DATE</th>
+                                        <th>STATUS</th>
+                                        <th style="min-width: 140px;">PROGRESS (%)</th>
+                                        <th>PAGES / SIZE</th>
+                                        <th style="text-align: right; min-width: 225px;">ACTIONS</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBodyNewspapers">
+                                    <!-- Populated dynamically via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Collapsible Live Terminal Console Drawer -->
+                    <div class="console-drawer-card">
+                        <div class="console-drawer-header">
+                            <div class="console-title-wrap">
+                                <span class="pulse-dot"></span>
+                                <h4>Live Task Monitor & SSE Log Stream</h4>
+                            </div>
+                            <div class="console-header-right">
+                                <span class="console-percent" id="lblProgressPercent">0%</span>
                             </div>
                         </div>
-
-                        <!-- Action Button -->
-                        <div class="action-btn-wrap">
-                            <button class="btn btn-primary btn-block btn-lg" id="btnStartBatch">
-                                <span class="btn-icon">⚡</span>
-                                <span>Download & Process Selected (1-Click)</span>
-                            </button>
+                        <div class="console-progress-track">
+                            <div class="console-progress-bar" id="mainProgressBar" style="width: 0%;"></div>
+                        </div>
+                        <div class="console-box" id="consoleBox">
+                            <div class="console-line text-muted">[System] Ready. Select date & newspapers, then click "Run Batch for Selected".</div>
                         </div>
                     </div>
-                </div>
+                </section>
 
-                <!-- Custom Direct URL Card -->
-                <div class="card card-collapsed" id="cardDirectUrl">
-                    <div class="card-header cursor-pointer" id="toggleDirectUrl">
-                        <div class="card-title">
-                            <span class="step-num">🔗</span>
-                            <h3>Custom Page / Single URL Input</h3>
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!-- TAB 2: FREE MAGAZINES (DEDICATED SECTION)                   -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!-- TAB 3: GENERATED PDFS LIBRARY                               -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section class="tab-pane" id="tab-files">
+                    <div class="page-heading">
+                        <div class="heading-left">
+                            <h1 class="page-title">Generated PDF Library (Date Folders)</h1>
+                            <p class="page-desc">All watermarked newspaper and magazine PDF editions grouped cleanly by publication date. Download single files or full date packages.</p>
                         </div>
-                        <span class="toggle-icon">▼</span>
-                    </div>
-                    <div class="card-body" id="bodyDirectUrl" style="display:none;">
-                        <div class="form-group">
-                            <label for="inputCustomUrl">Enter e-paper URL:</label>
-                            <input type="text" id="inputCustomUrl" class="form-control" placeholder="https://e.thenews.pk/karachi/31-08-2026/page1">
-                        </div>
-                        <button class="btn btn-secondary btn-block" id="btnProcessCustomUrl">Download From Link</button>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Right Column: Live Terminal Progress & Output Manager -->
-            <section class="output-section">
-                <!-- Live Console & Progress Card -->
-                <div class="card progress-card" id="progressCard">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <span class="pulse-icon"></span>
-                            <h3>Live Task Monitor</h3>
-                        </div>
-                        <span class="progress-percent" id="lblProgressPercent">0%</span>
-                    </div>
-
-                    <div class="progress-bar-container">
-                        <div class="progress-bar" id="mainProgressBar" style="width: 0%;"></div>
-                    </div>
-
-                    <div class="console-box" id="consoleBox">
-                        <div class="console-line text-muted">[System] Ready. Select date & newspapers, then click "Download & Process Selected".</div>
-                    </div>
-                </div>
-
-                <!-- Generated PDF Library / Gallery -->
-                <div class="card files-card">
-                    <div class="card-header">
-                        <div class="card-title">
-                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                                <path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                            </svg>
-                            <h3>Generated PDFs (<span id="lblFileCount">0</span>)</h3>
-                        </div>
-                        <div class="header-actions-sm">
-                            <button class="btn btn-sm btn-emerald" id="btnDownloadZipList">
+                        <div class="heading-right">
+                            <button type="button" class="btn btn-emerald" id="btnDownloadZipFromFiles">
                                 📦 Download Date ZIP
                             </button>
-                            <button class="btn btn-sm btn-outline" id="btnRefreshFiles">
+                            <button type="button" class="btn btn-danger-subtle" id="btnDeleteZipFromFiles" style="margin-left: 8px;">
+                                🗑️ Delete Date ZIP
+                            </button>
+                            <button type="button" class="btn btn-outline" id="btnPurgeOldFiles" style="margin-left: 8px;" title="Purge older dates to free disk space">
+                                🧹 Purge Older Dates
+                            </button>
+                            <button type="button" class="btn btn-secondary" id="btnRefreshFiles" style="margin-left: 8px;">
                                 🔄 Refresh
                             </button>
                         </div>
                     </div>
 
-                    <div class="card-body p-0">
-                        <div class="file-list" id="fileListContainer">
-                            <div class="empty-state">
-                                <div class="empty-icon">📁</div>
-                                <h4>No PDFs Generated Yet</h4>
-                                <p>Processed newspapers will appear here ready to share to your WhatsApp group.</p>
+                    <!-- Category Filter Chips for Generated PDFs -->
+                    <div class="filter-chips-row" style="margin-bottom: 16px; display: flex; gap: 8px; flex-wrap: wrap;">
+                        <button type="button" class="tab-chip active" data-files-filter="all" id="btnFilesFilterAll">All PDFs (0)</button>
+                        <button type="button" class="tab-chip" data-files-filter="newspaper_hub" id="btnFilesFilterHub" style="border-color: rgba(99, 102, 241, 0.5);">📰 Newspaper Hub (0)</button>
+                        <button type="button" class="tab-chip" data-files-filter="magazines" id="btnFilesFilterMag" style="border-color: rgba(16, 185, 129, 0.5);">📚 Free Magazines (0)</button>
+                        <button type="button" class="tab-chip" data-files-filter="foreignpaper" id="btnFilesFilterForeignPaper" style="border-color: rgba(59, 130, 246, 0.5);">🌐 Foreign Paper (0)</button>
+                        <button type="button" class="tab-chip" data-files-filter="indianpaper" id="btnFilesFilterIndianPaper" style="border-color: rgba(245, 158, 11, 0.5);">🇮🇳 Indian Newspaper (0)</button>
+                        <button type="button" class="tab-chip" data-files-filter="arabnews" id="btnFilesFilterArabNews" style="border-color: rgba(236, 72, 153, 0.5);">🇸🇦 Arab News (0)</button>
+                        <button type="button" class="tab-chip" data-files-filter="khalik" id="btnFilesFilterKhalik" style="border-color: rgba(245, 158, 11, 0.5);">👑 خالق / Khaliq (0)</button>
+                        <button type="button" class="tab-chip" data-files-filter="watermark" id="btnFilesFilterWatermark" style="border-color: rgba(245, 158, 11, 0.5);">📄 Watermark Stamper (0)</button>
+                    </div>
+
+                    <!-- Files Container -->
+                    <div class="files-container" id="filesContainer">
+                        <div class="empty-state">
+                            <div class="empty-icon">📁</div>
+                            <h4>No PDFs Generated Yet</h4>
+                            <p>Processed newspapers and magazines will appear here ready to share to your WhatsApp group.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!-- TAB: FREE MAGAZINES (FREEMAGAZINES.TOP)                    -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section class="tab-pane" id="tab-magazines">
+                    <div class="page-heading">
+                        <div class="heading-left">
+                            <h1 class="page-title">Free Magazines Hub (PDF)</h1>
+                            <p class="page-desc">Daily international magazines & digital publications from <code>FreeMagazines.top</code>.</p>
+                        </div>
+                        <div class="heading-right" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                            <button type="button" class="btn btn-emerald" id="btnDownloadAllMagazines" style="font-weight: 700; box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);">
+                                ⚡ Download Selected (0)
+                            </button>
+                            <button type="button" class="btn btn-primary" id="btnRefreshMagazines">🔄 Refresh Issues</button>
+                            <a href="#files" class="btn btn-outline" id="btnViewMagazinesInFiles">📁 View Output PDFs</a>
+                        </div>
+                    </div>
+
+                    <!-- Batch Progress Banner -->
+                    <div id="magBatchProgressBanner" style="display: none; background: linear-gradient(135deg, #0f172a, #1e293b); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 10px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span class="spinner-small" style="width: 18px; height: 18px; border: 2px solid #34d399; border-top-color: transparent; border-radius: 50%; display: inline-block; animation: spin 0.8s linear infinite;"></span>
+                                <strong style="color: #ffffff; font-size: 0.95rem;">Downloading Magazines Batch:</strong>
+                                <span id="magBatchCurrentTitle" style="color: #94a3b8; font-size: 0.88rem; max-width: 450px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inline-block;">Starting batch...</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span id="magBatchCounter" style="background: rgba(16, 185, 129, 0.2); color: #34d399; padding: 3px 8px; border-radius: 6px; font-weight: 700; font-size: 0.85rem;">0 / 0</span>
+                                <button type="button" id="btnStopMagBatch" class="btn btn-danger btn-sm" style="padding: 4px 10px; font-size: 0.78rem;">⏹️ Stop</button>
+                            </div>
+                        </div>
+                        <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                            <div id="magBatchProgressBar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #10b981, #34d399); border-radius: 4px; transition: width 0.3s ease;"></div>
+                        </div>
+                    </div>
+
+                    <div class="magazines-layout-wrapper">
+                        <!-- Left Sidebar Panel -->
+                        <div class="magazines-sidebar-panel">
+                            <!-- Search & Filter Card -->
+                            <div class="mag-sidebar-card">
+                                <h4 class="sidebar-heading">Search & Filter</h4>
+                                <div class="form-group" style="margin-bottom: 12px;">
+                                    <label for="magSearchBox" class="form-label" style="font-size: 0.8rem;">Search Title</label>
+                                    <input type="text" id="magSearchBox" class="form-input" placeholder="Search magazine name...">
+                                </div>
+                                <div class="form-group" style="margin-bottom: 0;">
+                                    <label for="magCategorySelect" class="form-label" style="font-size: 0.8rem;">Category Filter</label>
+                                    <select id="magCategorySelect" class="form-input">
+                                        <option value="all">All Categories (All Magazines)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Publication Date Archive Picker -->
+                            <div class="mag-sidebar-card">
+                                <h4 class="sidebar-heading">Publication Date Archive</h4>
+                                <div class="form-group" style="margin-bottom: 12px;">
+                                    <input type="date" id="magDatePicker" class="form-input" style="font-weight: 600;">
+                                </div>
+                                <div class="mag-archive-list" id="magArchiveList">
+                                    <!-- Populated dynamically via JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Main Grid Area -->
+                        <div class="magazines-main-panel">
+                            <!-- Status & Toolbar -->
+                            <div class="mag-toolbar">
+                                <div class="mag-toolbar-left" style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                                    <span class="mag-date-indicator">Published Date: <strong id="magCurrentDateLabel" style="color: var(--primary);">Loading...</strong></span>
+                                    <span class="mag-count-indicator">Available: <strong id="magTotalCountLabel" style="color: var(--text-main);">0 Issues</strong></span>
+                                    <div class="mag-selection-controls" style="display: flex; align-items: center; gap: 8px; margin-left: 10px; padding-left: 12px; border-left: 1px solid var(--border-color);">
+                                        <input type="checkbox" id="chkSelectAllMagazines" checked style="width: 18px; height: 18px; cursor: pointer; accent-color: #10b981;">
+                                        <label for="chkSelectAllMagazines" style="cursor: pointer; font-weight: 700; font-size: 0.9rem; user-select: none; color: var(--text-main);">Select All</label>
+                                        <span id="magSelectedCountLabel" style="font-size: 0.82rem; background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 2px 8px; border-radius: 6px; font-weight: 700;">0 Selected</span>
+                                    </div>
+                                </div>
+                                <div class="mag-toolbar-right">
+                                    <span id="magStatusBadge" class="badge-status badge-success">Ready</span>
+                                </div>
+                            </div>
+
+                            <!-- Notice Banner (if fallback date used) -->
+                            <div id="magNoticeBanner" style="display: none; margin-bottom: 16px;" class="alert-banner"></div>
+
+                            <!-- Magazine Grid Container -->
+                            <div class="magazines-grid" id="magazinesGrid">
+                                <div class="empty-state" style="grid-column: 1 / -1; padding: 50px 20px;">
+                                    <div class="empty-icon">📚</div>
+                                    <h4>Loading Magazines...</h4>
+                                    <p>Connecting to FreeMagazines.top archive and loading cover thumbnails.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Magazine Issue Detail Modal -->
+                <div class="mag-modal-overlay" id="magazineModalOverlay" style="display: none;">
+                    <div class="mag-modal-card">
+                        <button type="button" class="mag-modal-close" id="btnMagModalClose">✕</button>
+                        <div class="mag-modal-body">
+                            <div class="mag-modal-cover-wrap">
+                                <img id="magModalCover" src="" alt="Magazine Cover">
+                            </div>
+                            <div class="mag-modal-info">
+                                <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
+                                    <span class="mag-badge" id="magModalCategory">Category</span>
+                                    <span class="mag-badge" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;">True PDF</span>
+                                </div>
+                                <h2 class="mag-modal-title" id="magModalTitle">Magazine Title</h2>
+                                <div class="mag-modal-meta">
+                                    <div class="meta-item"><span>Publication Date:</span> <strong id="magModalDate">-</strong></div>
+                                    <div class="meta-item"><span>Page Count:</span> <strong id="magModalPages">-</strong></div>
+                                    <div class="meta-item"><span>File Size:</span> <strong id="magModalSize">-</strong></div>
+                                    <div class="meta-item"><span>Source Archive:</span> <strong>FreeMagazines.top</strong></div>
+                                </div>
+                                <p class="mag-modal-desc" id="magModalDesc">Original high-definition PDF magazine edition with all broadsheet pages, illustrations, and features intact.</p>
+                                <div class="mag-modal-actions">
+                                    <button type="button" class="btn btn-emerald btn-lg" id="btnMagModalDownload" style="font-weight: 600; padding: 12px 24px; font-size: 1rem;">
+                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                                        Download PDF Magazine
+                                    </button>
+                                    <a id="btnMagModalOpenPdf" href="#" target="_blank" class="btn btn-primary btn-lg" style="display: none; padding: 12px 24px; font-size: 1rem; text-decoration: none;">
+                                        📖 Open / View PDF
+                                    </a>
+                                </div>
+                                <div id="magModalDownloadStatus" style="display: none; margin-top: 14px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); padding: 12px 16px; border-radius: 8px; font-size: 0.9rem; color: var(--text-main);">
+                                    <span class="spinner-small" style="display: inline-block; width: 14px; height: 14px; border: 2px solid var(--primary); border-top-color: transparent; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle;"></span>
+                                    <span id="magModalDownloadStatusText">Downloading full PDF issue from cloud server...</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </main>
 
-        <!-- PDF Preview Modal -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!-- TAB: FOREIGN PAPER (MOBILISM F=123)                        -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section class="tab-pane" id="tab-foreignpaper">
+                    <div class="page-heading">
+                        <div class="heading-left">
+                            <h1 class="page-title">Foreign Paper Hub (PDF)</h1>
+                            <p class="page-desc">Daily international newspapers & publications (WSJ, Washington Post, USA Today, Financial Times, etc.) from <code>Mobilism</code>.</p>
+                        </div>
+                        <div class="heading-right" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                            <button type="button" class="btn btn-primary" id="btnDownloadAllFp" style="font-weight: 700; box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);">
+                                ⚡ Download Selected (0)
+                            </button>
+                            <button type="button" class="btn btn-outline" id="btnRefreshFp">🔄 Refresh Issues</button>
+                            <a href="#files" class="btn btn-outline" id="btnViewFpInFiles">📁 View Output PDFs</a>
+                        </div>
+                    </div>
+
+                    <!-- Batch Progress Banner -->
+                    <div id="fpBatchProgressBanner" style="display: none; background: linear-gradient(135deg, #0f172a, #1e293b); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 10px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span class="spinner-small" style="width: 18px; height: 18px; border: 2px solid #60a5fa; border-top-color: transparent; border-radius: 50%; display: inline-block; animation: spin 0.8s linear infinite;"></span>
+                                <strong style="color: #ffffff; font-size: 0.95rem;">Downloading Foreign Papers Batch:</strong>
+                                <span id="fpBatchCurrentTitle" style="color: #94a3b8; font-size: 0.88rem; max-width: 450px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inline-block;">Starting batch...</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span id="fpBatchCounter" style="background: rgba(59, 130, 246, 0.2); color: #60a5fa; padding: 3px 8px; border-radius: 6px; font-weight: 700; font-size: 0.85rem;">0 / 0</span>
+                                <button type="button" id="btnStopFpBatch" class="btn btn-danger btn-sm" style="padding: 4px 10px; font-size: 0.78rem;">⏹️ Stop</button>
+                            </div>
+                        </div>
+                        <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                            <div id="fpBatchProgressBar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #3b82f6, #60a5fa); border-radius: 4px; transition: width 0.3s ease;"></div>
+                        </div>
+                    </div>
+
+                    <div class="magazines-layout-wrapper">
+                        <!-- Left Sidebar Panel -->
+                        <div class="magazines-sidebar-panel">
+                            <!-- Search Card -->
+                            <div class="mag-sidebar-card">
+                                <h4 class="sidebar-heading">Search & Filter</h4>
+                                <div class="form-group" style="margin-bottom: 12px;">
+                                    <label for="fpSearchBox" class="form-label" style="font-size: 0.8rem;">Search Title</label>
+                                    <input type="text" id="fpSearchBox" class="form-input" placeholder="Search paper (e.g. Wall Street Journal)...">
+                                </div>
+                            </div>
+
+                            <!-- Date Archive Picker -->
+                            <div class="mag-sidebar-card">
+                                <h4 class="sidebar-heading">Publication Date Archive</h4>
+                                <div class="form-group" style="margin-bottom: 12px;">
+                                    <input type="date" id="fpDatePicker" class="form-input" style="font-weight: 600;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Main Grid Area -->
+                        <div class="magazines-main-panel">
+                            <!-- Toolbar -->
+                            <div class="mag-toolbar">
+                                <div class="mag-toolbar-left" style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                                    <span class="mag-date-indicator">Published Date: <strong id="fpCurrentDateLabel" style="color: var(--primary);">Loading...</strong></span>
+                                    <span class="mag-count-indicator">Available: <strong id="fpTotalCountLabel" style="color: var(--text-main);">0 Issues</strong></span>
+                                    <div class="mag-selection-controls" style="display: flex; align-items: center; gap: 8px; margin-left: 10px; padding-left: 12px; border-left: 1px solid var(--border-color);">
+                                        <input type="checkbox" id="chkSelectAllFp" checked style="width: 18px; height: 18px; cursor: pointer; accent-color: #3b82f6;">
+                                        <label for="chkSelectAllFp" style="cursor: pointer; font-weight: 700; font-size: 0.9rem; user-select: none; color: var(--text-main);">Select All</label>
+                                        <span id="fpSelectedCountLabel" style="font-size: 0.82rem; background: rgba(59, 130, 246, 0.15); color: #3b82f6; padding: 2px 8px; border-radius: 6px; font-weight: 700;">0 Selected</span>
+                                    </div>
+                                </div>
+                                <div class="mag-toolbar-right">
+                                    <span id="fpStatusBadge" class="badge-status badge-success">Ready</span>
+                                </div>
+                            </div>
+
+                            <div id="fpNoticeBanner" style="display: none; margin-bottom: 16px;" class="alert-banner"></div>
+
+                            <!-- Grid Container -->
+                            <div class="magazines-grid" id="foreignpaperGrid">
+                                <div class="empty-state" style="grid-column: 1 / -1; padding: 50px 20px;">
+                                    <div class="empty-icon">🌐</div>
+                                    <h4>Loading Foreign Papers...</h4>
+                                    <p>Connecting to Mobilism archive and loading paper thumbnails.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Foreign Paper Detail Modal -->
+                <div class="mag-modal-overlay" id="fpModalOverlay" style="display: none;">
+                    <div class="mag-modal-card">
+                        <button type="button" class="mag-modal-close" id="btnFpModalClose">✕</button>
+                        <div class="mag-modal-body">
+                            <div class="mag-modal-cover-wrap">
+                                <img id="fpModalCover" src="" alt="Paper Cover">
+                            </div>
+                            <div class="mag-modal-info">
+                                <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
+                                    <span class="mag-badge" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6;">Foreign Paper</span>
+                                    <span class="mag-badge" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8;">True PDF</span>
+                                </div>
+                                <h2 class="mag-modal-title" id="fpModalTitle">Paper Title</h2>
+                                <div class="mag-modal-meta">
+                                    <div class="meta-item"><span>Publication Date:</span> <strong id="fpModalDate">-</strong></div>
+                                    <div class="meta-item"><span>File Size:</span> <strong id="fpModalSize">-</strong></div>
+                                    <div class="meta-item"><span>Source:</span> <strong>Mobilism Forum</strong></div>
+                                </div>
+                                <p class="mag-modal-desc" id="fpModalDesc">Original high-definition PDF newspaper edition with all broadsheet pages, illustrations, and features intact.</p>
+                                <div id="fpModalLinksContainer" style="margin-top: 14px; margin-bottom: 14px;">
+                                    <div style="font-size: 0.82rem; font-weight: 700; color: #94a3b8; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 6px;">
+                                        <span>🌐 Download Mirror Servers</span>
+                                        <span style="font-size: 0.72rem; font-weight: 500; color: #64748b; text-transform: none;">(Click any link to download PDF)</span>
+                                    </div>
+                                    <div id="fpModalLinksList" style="display: flex; flex-direction: column; gap: 8px; max-height: 160px; overflow-y: auto; padding-right: 4px;"></div>
+                                </div>
+                                <div class="mag-modal-actions">
+                                    <button type="button" class="btn btn-primary btn-lg" id="btnFpModalDownload" style="font-weight: 600; padding: 12px 24px; font-size: 1rem;">
+                                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                                        Download Primary Mirror PDF
+                                    </button>
+                                    <a id="btnFpModalOpenPdf" href="#" target="_blank" class="btn btn-primary btn-lg" style="display: none; padding: 12px 24px; font-size: 1rem; text-decoration: none;">
+                                        📖 Open / View PDF
+                                    </a>
+                                </div>
+                                <div id="fpModalDownloadStatus" style="display: none; margin-top: 14px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.2); padding: 12px 16px; border-radius: 8px; font-size: 0.9rem; color: var(--text-main);">
+                                    <span class="spinner-small" style="display: inline-block; width: 14px; height: 14px; border: 2px solid var(--primary); border-top-color: transparent; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle;"></span>
+                                    <span id="fpModalDownloadStatusText">Downloading full PDF issue from cloud server...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!-- TAB: INDIAN NEWSPAPER (DAILYEPAPER.IN)                      -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section class="tab-pane" id="tab-indianpaper">
+                    <div class="page-heading">
+                        <div class="heading-left">
+                            <h1 class="page-title">Indian Newspaper Hub (PDF)</h1>
+                            <p class="page-desc">Daily English Indian newspapers (Times of India, The Hindu, HT, Economic Times, FPJ, etc.) from <code>DailyEpaper.in</code>. <i>Delhi & Mumbai editions featured.</i></p>
+                        </div>
+                        <div class="heading-right" style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                            <button type="button" class="btn btn-emerald" id="btnDownloadAllInd" style="font-weight: 700; box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);">
+                                ⚡ Download Selected (0)
+                            </button>
+                            <button type="button" class="btn btn-outline" id="btnRefreshInd">🔄 Refresh Issues</button>
+                            <a href="#files" class="btn btn-outline" id="btnViewIndInFiles">📁 View Output PDFs</a>
+                        </div>
+                    </div>
+
+                    <!-- Batch Progress Banner -->
+                    <div id="indBatchProgressBanner" style="display: none; background: linear-gradient(135deg, #0f172a, #1e293b); border: 1px solid rgba(245, 158, 11, 0.4); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 10px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span class="spinner-small" style="width: 18px; height: 18px; border: 2px solid #fbbf24; border-top-color: transparent; border-radius: 50%; display: inline-block; animation: spin 0.8s linear infinite;"></span>
+                                <strong style="color: #ffffff; font-size: 0.95rem;">Downloading Indian Newspapers Batch:</strong>
+                                <span id="indBatchCurrentTitle" style="color: #94a3b8; font-size: 0.88rem; max-width: 450px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: inline-block;">Starting batch...</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span id="indBatchCounter" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; padding: 3px 8px; border-radius: 6px; font-weight: 700; font-size: 0.85rem;">0 / 0</span>
+                                <button type="button" id="btnStopIndBatch" class="btn btn-danger btn-sm" style="padding: 4px 10px; font-size: 0.78rem;">⏹️ Stop</button>
+                            </div>
+                        </div>
+                        <div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden;">
+                            <div id="indBatchProgressBar" style="width: 0%; height: 100%; background: linear-gradient(90deg, #f59e0b, #fbbf24); border-radius: 4px; transition: width 0.3s ease;"></div>
+                        </div>
+                    </div>
+
+                    <div class="magazines-layout-wrapper">
+                        <!-- Left Sidebar Panel -->
+                        <div class="magazines-sidebar-panel">
+                            <!-- Search Card -->
+                            <div class="mag-sidebar-card">
+                                <h4 class="sidebar-heading">Search & Filter</h4>
+                                <div class="form-group" style="margin-bottom: 12px;">
+                                    <label for="indSearchBox" class="form-label" style="font-size: 0.8rem;">Search Title</label>
+                                    <input type="text" id="indSearchBox" class="form-input" placeholder="Search paper (e.g. Times of India)...">
+                                </div>
+                            </div>
+
+                            <!-- Date Archive Picker -->
+                            <div class="mag-sidebar-card">
+                                <h4 class="sidebar-heading">Publication Date Archive</h4>
+                                <div class="form-group" style="margin-bottom: 12px;">
+                                    <input type="date" id="indDatePicker" class="form-input" style="font-weight: 600;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Main Grid Area -->
+                        <div class="magazines-main-panel">
+                            <!-- Toolbar -->
+                            <div class="mag-toolbar">
+                                <div class="mag-toolbar-left" style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
+                                    <span class="mag-date-indicator">Published Date: <strong id="indCurrentDateLabel" style="color: var(--primary);">Loading...</strong></span>
+                                    <span class="mag-count-indicator">Available: <strong id="indTotalCountLabel" style="color: var(--text-main);">0 Issues</strong></span>
+                                    <div class="mag-selection-controls" style="display: flex; align-items: center; gap: 8px; margin-left: 10px; padding-left: 12px; border-left: 1px solid var(--border-color);">
+                                        <input type="checkbox" id="chkSelectAllInd" checked style="width: 18px; height: 18px; cursor: pointer; accent-color: #f59e0b;">
+                                        <label for="chkSelectAllInd" style="cursor: pointer; font-weight: 700; font-size: 0.9rem; user-select: none; color: var(--text-main);">Select All</label>
+                                        <span id="indSelectedCountLabel" style="font-size: 0.82rem; background: rgba(245, 158, 11, 0.15); color: #f59e0b; padding: 2px 8px; border-radius: 6px; font-weight: 700;">0 Selected</span>
+                                    </div>
+                                </div>
+                                <div class="mag-toolbar-right">
+                                    <span id="indStatusBadge" class="badge-status badge-success">Ready</span>
+                                </div>
+                            </div>
+
+                            <div id="indNoticeBanner" style="display: none; margin-bottom: 16px;" class="alert-banner"></div>
+
+                            <!-- Grid Container -->
+                            <div class="magazines-grid" id="indGridContainer">
+                                <div class="empty-state" id="indEmptyState" style="display: none; grid-column: 1 / -1; padding: 50px 20px;">
+                                    <div class="empty-icon">🇮🇳</div>
+                                    <h4>No Indian Newspapers Found</h4>
+                                    <p>No English newspaper issues were found for the selected date.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!-- TAB: ARAB NEWS (عرب نیوز)                                   -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section class="tab-pane" id="tab-arab">
+                    <!-- Stats Cards Row -->
+                    <div class="stats-overview-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon-wrap" style="background: rgba(59, 130, 246, 0.12); color: #3b82f6;">
+                                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z"/><path d="M3.6 9h16.8M3.6 15h16.8"/><path d="M11.5 3a17 17 0 0 0 0 18M12.5 3a17 17 0 0 1 0 18"/></svg>
+                            </div>
+                            <div class="stat-details">
+                                <div class="stat-label">Total Arab Newspapers</div>
+                                <div class="stat-value" id="lblArabTotalCount">22 <span class="stat-sub">Editions</span></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon-wrap" style="background: rgba(16, 185, 129, 0.12); color: var(--accent-emerald);">
+                                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                            </div>
+                            <div class="stat-details">
+                                <div class="stat-label">Selected for Batch</div>
+                                <div class="stat-value" id="lblArabSelectedCount">22 <span class="stat-sub">Ready</span></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon-wrap" style="background: rgba(245, 158, 11, 0.12); color: var(--accent-amber);">
+                                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            </div>
+                            <div class="stat-details">
+                                <div class="stat-label">Ready PDFs (Selected Date)</div>
+                                <div class="stat-value" id="lblArabReadyCount">0 <span class="stat-sub">Files</span></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon-wrap" style="background: rgba(99, 102, 241, 0.12); color: #6366f1;">
+                                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            </div>
+                            <div class="stat-details">
+                                <div class="stat-label">Publication Date</div>
+                                <div class="stat-value" id="lblArabActiveDate" style="font-size: 16px; font-weight: 700;">Today</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Main Table Card -->
+                    <div class="master-table-card">
+                        <!-- Table Toolbar -->
+                        <div class="table-toolbar">
+                            <div class="filter-chips-row">
+                                <button type="button" class="tab-chip active" data-arab-filter="all">All Editions (22)</button>
+                                <button type="button" class="tab-chip" data-arab-filter="pdf_ready" style="border-color: rgba(16, 185, 129, 0.5);">✓ PDF Generated (0)</button>
+                                <button type="button" class="tab-chip" data-arab-filter="pdf_pending" style="border-color: rgba(245, 158, 11, 0.5);">⏳ PDF Pending (22)</button>
+                                <button type="button" class="tab-chip" data-arab-filter="qatar">Qatar (9)</button>
+                                <button type="button" class="tab-chip" data-arab-filter="bahrain">Bahrain (2)</button>
+                                <button type="button" class="tab-chip" data-arab-filter="kuwait">Kuwait (3)</button>
+                                <button type="button" class="tab-chip" data-arab-filter="saudi">Saudi Arabia (2)</button>
+                                <button type="button" class="tab-chip" data-arab-filter="others">Oman & Regional (6)</button>
+                            </div>
+
+                            <div class="toolbar-actions">
+                                <button type="button" class="btn-text-sm" id="btnArabSelectAll">Select All</button>
+                                <span class="toolbar-sep">•</span>
+                                <button type="button" class="btn-text-sm" id="btnArabDeselectAll">Clear</button>
+
+                                <button type="button" id="btnRunArabBatch" class="btn btn-primary" style="padding: 9px 18px; font-weight: 700; border-radius: 8px; margin-left: 12px; display: inline-flex; align-items: center; gap: 8px;">
+                                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                    <span>Run Batch for Selected</span>
+                                </button>
+
+                                <button type="button" id="btnStopArabBatch" class="btn btn-danger" style="display: none; background: #dc2626; border-color: #b91c1c; padding: 9px 18px; font-weight: 700; border-radius: 8px; margin-left: 8px; align-items: center; gap: 8px; color: #fff;">
+                                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"></rect></svg>
+                                    <span>Stop Batch</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Table Element -->
+                        <div class="table-responsive">
+                            <table class="newspaper-master-table">
+                                <thead>
+                                    <tr>
+                                        <th class="col-checkbox">
+                                            <input type="checkbox" id="chkArabMasterTable" checked>
+                                        </th>
+                                        <th>EDITION / NEWSPAPER</th>
+                                        <th>CATEGORY</th>
+                                        <th>CITY / REGION</th>
+                                        <th>DATE</th>
+                                        <th>STATUS</th>
+                                        <th style="min-width: 140px;">PROGRESS (%)</th>
+                                        <th>PAGES / SIZE</th>
+                                        <th style="text-align: right; min-width: 225px;">ACTIONS</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBodyArab">
+                                    <!-- Rendered dynamically via app.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Collapsible Live Terminal Console Drawer -->
+                    <div class="console-drawer-card" id="arabConsoleDrawerCard" style="margin-top: 20px;">
+                        <div class="console-drawer-header">
+                            <div class="console-title-wrap">
+                                <span class="pulse-dot"></span>
+                                <h4>Arab News Live Monitor & Task Stream</h4>
+                            </div>
+                            <div class="console-header-right">
+                                <span class="console-percent" id="lblArabProgressPercent">0%</span>
+                            </div>
+                        </div>
+                        <div class="console-progress-track">
+                            <div class="console-progress-bar" id="arabMainProgressBar" style="width: 0%;"></div>
+                        </div>
+                        <div class="console-box" id="arabConsoleBox">
+                            <div class="console-line text-muted">[Arab Engine] Ready. Select date & editions, then click "Run Batch for Selected".</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!-- TAB: KHALIQ NEWSPAPERS HUB (خالق)                             -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section class="tab-pane" id="tab-khalik">
+                    <!-- Stats Overview Row for Khaliq -->
+                    <div class="stats-overview-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon-wrap" style="background: rgba(245, 158, 11, 0.12); color: #f59e0b;">
+                                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+                            </div>
+                            <div class="stat-details">
+                                <div class="stat-label">Khaliq Total Editions</div>
+                                <div class="stat-value">55 <span class="stat-sub">Editions</span></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon-wrap" style="background: rgba(16, 185, 129, 0.12); color: var(--accent-emerald);">
+                                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                            </div>
+                            <div class="stat-details">
+                                <div class="stat-label">Selected for Batch</div>
+                                <div class="stat-value" id="lblKhalikSelectedCount">55 <span class="stat-sub">Ready</span></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon-wrap" style="background: rgba(99, 102, 241, 0.12); color: #6366f1;">
+                                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            </div>
+                            <div class="stat-details">
+                                <div class="stat-label">Ready PDFs (Selected Date)</div>
+                                <div class="stat-value" id="lblKhalikReadyCount">0 <span class="stat-sub">Files</span></div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon-wrap" style="background: rgba(79, 70, 229, 0.12); color: var(--primary);">
+                                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            </div>
+                            <div class="stat-details">
+                                <div class="stat-label">Publication Date</div>
+                                <div class="stat-value" id="lblKhalikActiveDate" style="font-size: 16px; font-weight: 700;">Today</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Master Table Card for Khaliq -->
+                    <div class="master-table-card">
+                        <div class="table-toolbar">
+                            <div class="filter-chips-row">
+                                <button type="button" class="tab-chip active" data-khalik-filter="all">All Khaliq (55)</button>
+                                <button type="button" class="tab-chip" data-khalik-filter="pdf_ready" style="border-color: rgba(16, 185, 129, 0.5);">✓ PDF Generated (0)</button>
+                                <button type="button" class="tab-chip" data-khalik-filter="pdf_pending" style="border-color: rgba(245, 158, 11, 0.5);">⏳ PDF Pending (55)</button>
+                                <button type="button" class="tab-chip" data-khalik-filter="express">Express (11)</button>
+                                <button type="button" class="tab-chip" data-khalik-filter="jehan">Jehan Pakistan (5)</button>
+                                <button type="button" class="tab-chip" data-khalik-filter="dpcom">Daily Pakistan .com (5)</button>
+                                <button type="button" class="tab-chip" data-khalik-filter="dppk">Daily Pakistan .pk (9)</button>
+                                <button type="button" class="tab-chip" data-khalik-filter="jinnah">Daily Jinnah (5)</button>
+                                <button type="button" class="tab-chip" data-khalik-filter="sahafat">Sahafat (5)</button>
+                                <button type="button" class="tab-chip" data-khalik-filter="k2">Daily K2 (4)</button>
+                                <button type="button" class="tab-chip" data-khalik-filter="jang">Daily Jang (5)</button>
+                                <button type="button" class="tab-chip" data-khalik-filter="dunya">Roznama Dunya (6)</button>
+                            </div>
+
+                            <div class="toolbar-actions">
+                                <button type="button" class="btn-text-sm" id="btnKhalikSelectAll">Select All</button>
+                                <span class="toolbar-sep">•</span>
+                                <button type="button" class="btn-text-sm" id="btnKhalikDeselectAll">Clear</button>
+
+                                <button type="button" id="btnStartKhalikBatch" class="btn btn-primary" style="padding: 9px 18px; font-weight: 700; border-radius: 8px; margin-left: 12px; display: inline-flex; align-items: center; gap: 8px; background: #f59e0b; border-color: #d97706;">
+                                    <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                                    <span>Run Batch for Khaliq</span>
+                                </button>
+
+                                <button type="button" id="btnStopKhalikBatch" class="btn btn-danger" style="display: none; background: #dc2626; border-color: #b91c1c; padding: 9px 18px; font-weight: 700; border-radius: 8px; margin-left: 8px; align-items: center; gap: 8px; color: #fff;">
+                                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"></rect></svg>
+                                    <span>Stop Batch</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Table Element for Khalik -->
+                        <div class="table-responsive">
+                            <table class="newspaper-master-table">
+                                <thead>
+                                    <tr>
+                                        <th class="col-checkbox">
+                                            <input type="checkbox" id="chkKhalikMasterTable" checked>
+                                        </th>
+                                        <th>EDITION / NEWSPAPER</th>
+                                        <th>NETWORK</th>
+                                        <th>CITY / REGION</th>
+                                        <th>DATE</th>
+                                        <th>STATUS</th>
+                                        <th style="min-width: 140px;">PROGRESS (%)</th>
+                                        <th>PAGES / SIZE</th>
+                                        <th style="text-align: right; min-width: 225px;">ACTIONS</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBodyKhalik">
+                                    <!-- Populated dynamically via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!-- TAB: WATERMARK STAMPER                                     -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section class="tab-pane" id="tab-watermark">
+                    <div class="page-heading">
+                        <div class="heading-left">
+                            <h1 class="page-title">Bulk PDF Watermark &amp; Promo Pages Stamper</h1>
+                            <p class="page-desc">Upload or Drag &amp; Drop external PDFs (WhatsApp/web) to apply custom watermarks, clean filenames, change dates &amp; append promo pages in 1-click.</p>
+                        </div>
+                    </div>
+
+                    <!-- Custom PDF Bulk Watermark & Promo Stamper Card -->
+                    <div class="card custom-pdf-card" style="border: 2px dashed rgba(245, 158, 11, 0.4); background: var(--bg-card); border-radius: 12px; padding: 22px;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <div style="background: rgba(245, 158, 11, 0.15); color: #d97706; width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px;">
+                                    📄
+                                </div>
+                                <div>
+                                    <h3 style="margin: 0; font-size: 17px; font-weight: 800; color: var(--text-primary);">Bulk PDF Watermark &amp; Promo Pages Stamper</h3>
+                                    <p style="margin: 2px 0 0 0; font-size: 13px; color: var(--text-muted);">Upload or Drag &amp; Drop external PDFs (WhatsApp/web) to apply watermarks &amp; append 2 promo pages in 1-click.</p>
+                                </div>
+                            </div>
+                            <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: #10b981; font-weight: 700; padding: 6px 14px; border-radius: 20px; font-size: 12px;">
+                                ⚡ 1-Click Multi-PDF Stamper
+                            </span>
+                        </div>
+
+                        <!-- Drag & Drop Upload Zone -->
+                        <div class="pdf-dropzone" id="customPdfDropzone" style="border: 2px dashed var(--primary); border-radius: 10px; padding: 28px 16px; text-align: center; background: rgba(79, 70, 229, 0.03); cursor: pointer; transition: all 0.2s ease;">
+                            <input type="file" id="customPdfFileInput" multiple accept=".pdf" style="display: none;">
+                            <div style="font-size: 38px; margin-bottom: 8px;">📥</div>
+                            <h4 style="margin: 0 0 4px 0; font-size: 15px; font-weight: 700;">Drag &amp; Drop PDF Files Here</h4>
+                            <p style="margin: 0; font-size: 13px; color: var(--text-muted);">or <span style="color: var(--primary); font-weight: 700; text-decoration: underline;">click here to browse PDFs</span> from your computer/mobile</p>
+                        </div>
+
+                        <!-- Selected Files List -->
+                        <div id="customPdfFilesList" style="margin-top: 14px; display: none;">
+                            <div style="font-size: 12px; font-weight: 700; color: var(--text-muted); margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center;">
+                                <span>Selected Files (<span id="customPdfSelectedCount">0</span>)</span>
+                                <button type="button" class="btn-text-sm" id="btnClearCustomPdfs" style="color: #ef4444;">Clear All</button>
+                            </div>
+                            <div id="customPdfItemsContainer" style="display: flex; flex-direction: column; gap: 6px; max-height: 200px; overflow-y: auto; padding-right: 4px;"></div>
+                        </div>
+
+                        <!-- Watermark & Promo Options Row -->
+                        <div style="margin-top: 16px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; background: var(--bg-secondary); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border-color);">
+                            <div style="flex: 1; min-width: 260px;">
+                                <label style="font-size: 11px; font-weight: 700; color: var(--text-muted); display: block; margin-bottom: 4px;">WATERMARK BRANDING TEXT</label>
+                                <input type="text" id="inputCustomPdfWatermark" class="form-input" style="padding: 7px 10px; font-size: 13px; width: 100%; font-weight: 700;" value="Social Media Pakistan 0342-4938217">
+                            </div>
+                            <div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center; font-size: 12px; font-weight: 600;">
+                                <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                                    <input type="checkbox" id="chkCustomTopBanner"> Top Header Banner
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                                    <input type="checkbox" id="chkCustomBottomBanner" checked> Bottom WhatsApp Bar
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                                    <input type="checkbox" id="chkCustomDiagonal"> Diagonal Center Watermark
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; color: #059669; font-weight: 700;" title="Check to clean existing date strings and suffixes from filename.">
+                                    <input type="checkbox" id="chkCustomCleanFilename" checked> Clean File Name
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; color: #2563eb; font-weight: 700;" title="Check to prepend date prefix to output filename.">
+                                    <input type="checkbox" id="chkCustomDateOption" checked> Change / Add Date
+                                </label>
+                                <div id="customDateInputWrapper" style="display: flex; align-items: center; gap: 4px;">
+                                    <input type="text" id="inputCustomPdfDate" class="form-input" style="padding: 4px 8px; font-size: 12px; width: 100px; font-weight: 600;" placeholder="Auto / Date" title="Optional: Enter custom date (e.g. 18 Sep). Leave blank for today's date.">
+                                </div>
+                                <label style="display: flex; align-items: center; gap: 6px; cursor: pointer; color: #d97706; font-weight: 700;">
+                                    <input type="checkbox" id="chkCustomPromoPages" checked> Append 2 Promo Pages (Rules &amp; Services)
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Action Button & Status -->
+                        <div style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
+                            <div id="customPdfStatusMsg" style="font-size: 13px; font-weight: 700; color: var(--primary);"></div>
+                            <button type="button" id="btnProcessCustomPdfs" class="btn btn-primary" style="padding: 10px 22px; font-weight: 800; border-radius: 8px; display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #f59e0b, #d97706); border: none; color: #fff;">
+                                <span>⚡ Apply Watermark &amp; Append Promo Pages (1-Click)</span>
+                            </button>
+                        </div>
+
+                        <!-- Results Table Section -->
+                        <div id="customPdfResultsSection" style="margin-top: 18px; display: none; border-top: 1px solid var(--border-color); padding-top: 14px;">
+                            <h4 style="margin: 0 0 10px 0; font-size: 14px; font-weight: 700; color: #10b981;">✓ Processed PDFs Ready for Download</h4>
+                            <div class="table-responsive">
+                                <table class="newspaper-master-table">
+                                    <thead>
+                                        <tr>
+                                            <th>FILE NAME</th>
+                                            <th>PAGES</th>
+                                            <th>SIZE</th>
+                                            <th>STATUS</th>
+                                            <th style="text-align: right;">ACTIONS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="customPdfResultsTableBody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="tab-pane" id="tab-branding">
+                    <div class="page-heading">
+                        <div class="heading-left">
+                            <h1 class="page-title">WhatsApp Group Watermark & Margin Branding</h1>
+                            <p class="page-desc">Configure top and bottom extra margin banners so your WhatsApp group details are crisp without overlapping any news text.</p>
+                        </div>
+                        <div class="heading-right">
+                            <button type="button" class="btn btn-outline" id="btnResetWatermark">Reset Defaults</button>
+                        </div>
+                    </div>
+
+                    <div class="branding-layout-grid">
+                        <div class="branding-controls-card">
+                            <div class="form-group">
+                                <label for="inputWatermarkText" class="form-label">WhatsApp Group Branding Text</label>
+                                <input type="text" id="inputWatermarkText" class="form-input font-bold" value="Social Media Pakistan 0342-4938217">
+                                <span class="form-hint">Placed in clean extra margins at the top and bottom.</span>
+                            </div>
+
+                            <div class="layer-item">
+                                <label class="switch-label">
+                                    <input type="checkbox" id="chkEnableTop" checked>
+                                    <span class="switch-slider"></span>
+                                    <span class="layer-title">Top Header Banner (Clean Margin)</span>
+                                </label>
+                            </div>
+
+                            <div class="layer-item">
+                                <label class="switch-label">
+                                    <input type="checkbox" id="chkEnableBottom" checked>
+                                    <span class="switch-slider"></span>
+                                    <span class="layer-title">Bottom WhatsApp Bar (Clean Margin)</span>
+                                </label>
+                            </div>
+
+                            <div class="layer-item">
+                                <label class="switch-label">
+                                    <input type="checkbox" id="chkEnableDiagonal">
+                                    <span class="switch-slider"></span>
+                                    <span class="layer-title">Diagonal Center Watermark (Optional)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="broadsheet-preview-card">
+                            <h4 style="margin-bottom: 12px; font-size: 14px; font-weight: 700;">Live Canvas Broadsheet Preview</h4>
+                            <div class="canvas-wrapper">
+                                <canvas id="mockupCanvas" width="400" height="540"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!-- TAB 5: LARAVEL API ENGINE                                   -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section class="tab-pane" id="tab-laravel">
+                    <div class="page-heading">
+                        <div class="heading-left">
+                            <h1 class="page-title">Laravel API Engine & REST Endpoints</h1>
+                            <p class="page-desc">Automated REST endpoints for external cron jobs, mobile applications, and headless PDF automation.</p>
+                        </div>
+                    </div>
+
+                    <div class="api-docs-card">
+                        <table class="api-endpoints-table">
+                            <thead>
+                                <tr>
+                                    <th>METHOD</th>
+                                    <th>ENDPOINT</th>
+                                    <th>DESCRIPTION</th>
+                                    <th>RESPONSE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="http-tag get">GET</span></td>
+                                    <td><code>/api/catalog</code></td>
+                                    <td>List all 38 available newspaper scrapers and status</td>
+                                    <td><code>{ success: true, count: 38, catalog: [...] }</code></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="http-tag post">POST</span></td>
+                                    <td><code>/api/process-batch</code></td>
+                                    <td>Trigger SSE real-time multi-threaded scraper batch</td>
+                                    <td><code>SSE Stream (text/event-stream)</code></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="http-tag get">GET</span></td>
+                                    <td><code>/api/download-zip?date=4+Sep</code></td>
+                                    <td>Download single date archive as ZIP</td>
+                                    <td><code>application/zip binary</code></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="http-tag get">GET</span></td>
+                                    <td><code>/api/magazines/feed</code></td>
+                                    <td>Live feed from FreeMagazines.top with category filtering</td>
+                                    <td><code>{ success: true, magazines: [...] }</code></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="http-tag post">POST</span></td>
+                                    <td><code>/api/magazines/download-issue</code></td>
+                                    <td>Download & watermark magazine issue to library</td>
+                                    <td><code>{ success: true, filename, sizeMb, url }</code></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="http-tag delete">DELETE</span></td>
+                                    <td><code>/api/dates/:dateStr</code></td>
+                                    <td>Delete all PDF files for a publication date</td>
+                                    <td><code>{ success: true, count: N }</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <!-- TAB: PASSPORT SIZE PHOTO CREATOR BY KHALIQ                 -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                <section class="tab-pane" id="tab-passport-photo">
+                    <div class="page-heading">
+                        <div class="heading-left">
+                            <h1 class="page-title">Passport Size Photo Creator by Khaliq</h1>
+                            <p class="page-desc">Upload any passport photo, adjust touch-up enhancement, contrast, brightness, zoom positioning, and print an 8-photo sheet (A6 format).</p>
+                        </div>
+                    </div>
+
+                    <div class="passport-creator-grid">
+                        <!-- LEFT PANEL: Upload & Editing Controls -->
+                        <div class="passport-controls-card">
+                            <h3 class="card-section-title">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                    <path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                                1. Upload Passport Photo
+                            </h3>
+                            
+                            <div class="passport-upload-zone" id="passportDropzone">
+                                <input type="file" id="passportFileInput" accept="image/*" style="display: none;">
+                                <div class="upload-icon">📸</div>
+                                <div class="upload-text">Drag & drop your photo here</div>
+                                <div class="upload-subtext">or click to browse from device (JPG, PNG, WEBP)</div>
+                                <button type="button" class="btn btn-primary btn-sm" id="btnBrowsePassport" style="margin-top: 12px;">Browse Photo</button>
+                            </div>
+
+                            <div class="passport-control-group" style="margin-top: 24px;">
+                                <h3 class="card-section-title">
+                                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                    </svg>
+                                    2. Face Enhancement & Touch-up
+                                </h3>
+                                <div class="slider-control-item">
+                                    <div class="slider-label-row">
+                                        <span>Skin Smoothing & Spot Clean:</span>
+                                        <span id="valSmoothing">0%</span>
+                                    </div>
+                                    <input type="range" id="sliderSmoothing" min="0" max="100" value="0" class="form-range">
+                                </div>
+
+                                <div class="slider-control-item">
+                                    <div class="slider-label-row">
+                                        <span>Brightness Adjustment:</span>
+                                        <span id="valBrightness">0%</span>
+                                    </div>
+                                    <input type="range" id="sliderBrightness" min="-50" max="50" value="0" class="form-range">
+                                </div>
+
+                                <div class="slider-control-item">
+                                    <div class="slider-label-row">
+                                        <span>Contrast & Clarity:</span>
+                                        <span id="valContrast">0%</span>
+                                    </div>
+                                    <input type="range" id="sliderContrast" min="-50" max="50" value="0" class="form-range">
+                                </div>
+                            </div>
+
+                            <div class="passport-control-group" style="margin-top: 24px;">
+                                <h3 class="card-section-title">
+                                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                                    </svg>
+                                    3. Crop & Position Adjustment
+                                </h3>
+                                <div class="slider-control-item">
+                                    <div class="slider-label-row">
+                                        <span>Zoom / Scale:</span>
+                                        <span id="valZoom">100%</span>
+                                    </div>
+                                    <input type="range" id="sliderZoom" min="80" max="180" value="100" class="form-range">
+                                </div>
+                                <div class="slider-control-item">
+                                    <div class="slider-label-row">
+                                        <span>Vertical Position (Y Offset):</span>
+                                        <span id="valOffsetY">0px</span>
+                                    </div>
+                                    <input type="range" id="sliderOffsetY" min="-100" max="100" value="0" class="form-range">
+                                </div>
+                                <button type="button" class="btn btn-secondary btn-sm" id="btnResetCrop" style="margin-top: 8px;">Reset Adjustments</button>
+                            </div>
+                        </div>
+
+                        <!-- RIGHT PANEL: Live Output Preview & Download Action -->
+                        <div class="passport-previews-column">
+                            <!-- Printable 8-Photo Sheet -->
+                            <div class="passport-preview-card">
+                                <div class="preview-card-header">
+                                    <h4>Printable 8-Photo Sheet (2x4 Grid)</h4>
+                                    <span class="badge-tag">A6 / 4x6" Sheet</span>
+                                </div>
+                                <div class="preview-canvas-wrapper sheet">
+                                    <canvas id="passportCanvasSheet" width="1800" height="1200"></canvas>
+                                    <div class="preview-placeholder" id="placeholderSheet">
+                                        <span>🖼️ Upload a photo to preview 8-Photo Sheet</span>
+                                    </div>
+                                </div>
+                                <div class="preview-card-footer">
+                                    <button type="button" class="btn btn-success btn-block btn-lg" id="btnDownloadSheet" disabled style="background: #10b981; border-color: #10b981;">
+                                        <span>🖨️ Download 8-Photo Print Sheet (A6)</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        
+            <!-- ================= ARAB NEWSPAPERS HUB ================= -->
+                            <!-- ═══════════════════════════════════════════════════════════ -->
+                <!-- TAB 2: ARAB & MIDDLE EAST NEWSPAPERS HUB                      -->
+                <!-- ═══════════════════════════════════════════════════════════ -->
+                
+
+</main>
+
+        <!-- ── PDF PREVIEW MODAL ─────────────────────────────────────────── -->
         <div class="modal-backdrop" id="previewModal">
             <div class="modal-dialog">
                 <div class="modal-header">
                     <h4 class="modal-title" id="modalFileName">PDF Preview</h4>
                     <div class="modal-actions">
                         <a href="#" id="modalDownloadBtn" class="btn btn-sm btn-primary" download>Download</a>
-                        <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+                        <button type="button" class="modal-close-btn" id="modalCloseBtn">&times;</button>
                     </div>
                 </div>
                 <div class="modal-body">
@@ -237,10 +1320,30 @@
             </div>
         </div>
 
-        <!-- Toast Notification -->
+        <!-- ── TOAST NOTIFICATIONS ───────────────────────────────────────── -->
         <div class="toast-container" id="toastContainer"></div>
     </div>
 
-    <script src="app.js"></script>
+    <!-- ── PIN LOCK OVERLAY MODAL (PIN: 5712) ────────────────────────── -->
+    <div class="pin-lock-overlay" id="pinLockOverlay">
+        <div class="pin-lock-card">
+            <div class="pin-lock-header">
+                <div class="pin-lock-icon">🔒</div>
+                <h2 class="pin-lock-title">Access Restricted</h2>
+                <p class="pin-lock-subtitle">Please enter PIN code to access Pakistan E-Paper Master</p>
+            </div>
+            <form id="pinLockForm" onsubmit="return false;">
+                <div class="pin-input-group">
+                    <input type="password" id="inputPinCode" class="pin-code-input" maxlength="10" placeholder="••••" autocomplete="off">
+                </div>
+                <div class="pin-error-msg" id="pinErrorMsg" style="display: none;">⚠️ Incorrect PIN. Please enter PIN 5712.</div>
+                <button type="submit" class="btn btn-primary btn-block btn-lg" id="btnUnlockPin" style="font-weight: 700; margin-top: 16px;">
+                    <span>🔓 Unlock Hub</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js?v=20260926_0650"></script>
 </body>
 </html>

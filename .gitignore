@@ -1,6 +1,40 @@
+# Node dependencies
 node_modules/
+
+# Python Virtual Environment & Bytecode
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Temporary, Scratch, and Cache directories
 output/
+downloads/
+public/downloads/
+public/newspapers/
+tmp_pdf_uploads/
+scratch/
+test_output/
+cache/
+
+# Logs and OS files
 *.log
 .DS_Store
 Thumbs.db
+.well-known/
+
+# Secrets and environment configs
 .env
+config/telegram.json
+
+# Backup files and test artifacts
+*.bak
+*.bak_*
+*.bak_*/*
+*.tmp
+test_*.png
+*.pdf
+
+# Accidental root files
+=
+All
