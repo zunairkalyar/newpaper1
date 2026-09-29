@@ -42,6 +42,7 @@ const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 const { exec } = require('child_process');
 const AdmZip = require('adm-zip');
 const archiver = require('archiver');
@@ -1682,7 +1683,7 @@ app.post('/api/download-custom-magazine', async (req, res) => {
 
 // ── BULK CUSTOM PDF WATERMARK & PROMO STAMPER ROUTE ─────────────────────────
 const multer = require('multer');
-const uploadTmpDir = '/tmp/newspaper_uploads';
+const uploadTmpDir = path.join(os.tmpdir(), 'newspaper_uploads');
 if (!fs.existsSync(uploadTmpDir)) {
     fs.mkdirSync(uploadTmpDir, { recursive: true });
 }
@@ -2126,9 +2127,21 @@ app.post('/api/passport/process-ai', passportUpload.single('image'), async (req,
         const brightness = parseInt(req.body.brightness || '5', 10);
         const contrast = parseInt(req.body.contrast || '10', 10);
 
-        const venvPython = path.join(__dirname, 'venv', 'bin', 'python3');
+        let pyCmd = 'python3';
+        const venvWin = path.join(__dirname, 'venv', 'Scripts', 'python.exe');
+        const venvUnix = path.join(__dirname, 'venv', 'bin', 'python3');
+        const venvUnixAlt = path.join(__dirname, 'venv', 'bin', 'python');
+        if (fs.existsSync(venvWin)) {
+            pyCmd = venvWin;
+        } else if (fs.existsSync(venvUnix)) {
+            pyCmd = venvUnix;
+        } else if (fs.existsSync(venvUnixAlt)) {
+            pyCmd = venvUnixAlt;
+        } else {
+            pyCmd = process.platform === 'win32' ? 'python' : 'python3';
+        }
         const scriptPath = path.join(__dirname, 'services', 'passport_ai.py');
-        const cmd = `"${venvPython}" "${scriptPath}" "${inputPath}" "${outputPath}" ${smoothing} ${brightness} ${contrast}`;
+        const cmd = `"${pyCmd}" "${scriptPath}" "${inputPath}" "${outputPath}" ${smoothing} ${brightness} ${contrast}`;
 
         exec(cmd, { maxBuffer: 20 * 1024 * 1024 }, (err, stdout, stderr) => {
             try { if (fs.existsSync(inputPath)) fs.unlinkSync(inputPath); } catch (e) {}

@@ -2,6 +2,7 @@ const { PDFDocument, PDFName, rgb, degrees, StandardFonts } = require('pdf-lib')
 const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 const { exec, execSync } = require('child_process');
 
 function isJpg(buf) {
@@ -29,8 +30,8 @@ function repairPdfBuffer(buf) {
     if (!buf || !Buffer.isBuffer(buf) || buf.length < 5000) return buf;
     try {
         const randId = Math.random().toString(36).substring(7);
-        const inPath = path.join('/tmp', `repair_in_${Date.now()}_${randId}.pdf`);
-        const outPath = path.join('/tmp', `repair_out_${Date.now()}_${randId}.pdf`);
+        const inPath = path.join(os.tmpdir(), `repair_in_${Date.now()}_${randId}.pdf`);
+        const outPath = path.join(os.tmpdir(), `repair_out_${Date.now()}_${randId}.pdf`);
         fs.writeFileSync(inPath, buf);
         execSync(`qpdf --linearize --object-streams=disable "${inPath}" "${outPath}"`, { stdio: 'ignore' });
         if (fs.existsSync(outPath)) {
@@ -83,8 +84,8 @@ async function attachFirstPageThumbnail(finalDoc, input) {
         } else if (Buffer.isBuffer(input)) {
             // For raw PDF buffers: render Page 1 using pdftoppm -scale-to 300 (fast, single step)
             const randId = Math.random().toString(36).substring(7);
-            const tmpPdfPath = path.join('/tmp', `input_thumb_${Date.now()}_${randId}.pdf`);
-            const tmpOutPrefix = path.join('/tmp', `page1_thumb_${Date.now()}_${randId}`);
+            const tmpPdfPath = path.join(os.tmpdir(), `input_thumb_${Date.now()}_${randId}.pdf`);
+            const tmpOutPrefix = path.join(os.tmpdir(), `page1_thumb_${Date.now()}_${randId}`);
             fs.writeFileSync(tmpPdfPath, input);
             
             try {
@@ -268,8 +269,8 @@ async function assembleAndWatermarkPdf(input, metadata, config = {}) {
                 const stats = fs.statSync(outputPath);
                 let pCount = 10;
                 try {
-                    const outPpm = execSync(`pdfinfo "${outputPath}" | grep Pages:`, { encoding: 'utf8' });
-                    const mP = outPpm.match(/Pages:\s*(\d+)/);
+                    const outPpm = execSync(`pdfinfo "${outputPath}"`, { encoding: 'utf8' });
+                    const mP = outPpm.match(/Pages:\s*(\d+)/i);
                     if (mP) pCount = parseInt(mP[1], 10);
                 } catch (_) {}
                 return {

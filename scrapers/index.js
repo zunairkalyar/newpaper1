@@ -23,6 +23,15 @@ const BROWSER_HEADERS = {
 
 
 // Validation helper functions
+function getPythonCmd() {
+    const venvWin = path.join(__dirname, '..', 'venv', 'Scripts', 'python.exe');
+    const venvUnix = path.join(__dirname, '..', 'venv', 'bin', 'python3');
+    const venvUnixAlt = path.join(__dirname, '..', 'venv', 'bin', 'python');
+    if (fs.existsSync(venvWin)) return `"${venvWin}"`;
+    if (fs.existsSync(venvUnix)) return `"${venvUnix}"`;
+    if (fs.existsSync(venvUnixAlt)) return `"${venvUnixAlt}"`;
+    return process.platform === 'win32' ? 'python' : 'python3';
+}
 function isValidImage(buf) {
     if (!buf || buf.length < 5000) return false;
     // JPEG: FF D8 FF
@@ -165,7 +174,7 @@ async function fetchDawn(editionKey, cityName, dateObj, outputDir, config, log) 
     try {
         const { execSync } = require('child_process');
         const helperPath = path.join(__dirname, 'getDawnSlots.py');
-        const pyOutput = execSync(`python3 "${helperPath}" ${dateStr}`, { timeout: 12000, encoding: 'utf-8' });
+        const pyOutput = execSync(`${getPythonCmd()} "${helperPath}" ${dateStr}`, { timeout: 12000, encoding: 'utf-8' });
         const parsed = JSON.parse(pyOutput.trim() || '[]');
         if (Array.isArray(parsed) && parsed.length > 0) {
             for (const item of parsed) {
@@ -476,7 +485,7 @@ async function fetchTheNews(editionKey, cityName, dateObj, outputDir, config, lo
     try {
         const { execSync } = require('child_process');
         const helperPath = path.join(__dirname, 'getTheNewsPages.py');
-        const pyOutput = execSync(`python3 "${helperPath}" ${citySlug} ${dStr} ${mStr} ${yStr}`, { timeout: 12000, encoding: 'utf-8' });
+        const pyOutput = execSync(`${getPythonCmd()} "${helperPath}" ${citySlug} ${dStr} ${mStr} ${yStr}`, { timeout: 12000, encoding: 'utf-8' });
         candidatePages = JSON.parse(pyOutput.trim() || '[]');
         log(`The News ${cleanCity}: Dynamically discovered edition index (${candidatePages.length} candidate slots).`);
     } catch (err) {
